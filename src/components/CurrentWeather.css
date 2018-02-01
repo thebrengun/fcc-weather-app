@@ -1,0 +1,95 @@
+/* Current Weather */
+
+/* Current Weather Description */
+
+.current-weather-description {
+  margin: .5em 1em;
+  padding: 0;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+/* Current Weather Icons */
+
+.current-weather-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.current-weather-icons > div {
+  flex-basis: 50%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-weather-icons > div > img {
+  width: 90%;
+  max-width: 55vw;
+}
+
+/* Current Weather Temperature */
+
+.current-weather-temp {
+  margin: 0 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.current-weather-temp > .temp-live {
+  font-size: 6.5em;
+}
+
+.current-weather-temp > .temp-hi-lo {
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+
+.temp-hi, .temp-lo {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width : 600px) {
+  .current-weather {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .current-weather-icons {
+    flex-basis: 50%;
+  }
+
+  .current-weather-temp {
+    align-self: stretch;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 1.25em;
+  }
+
+  .temp-hi-lo {
+    flex-direction: row;
+    align-content: center;
+  }
+
+  .temp-hi, .temp-lo {
+    justify-content: center;
+  }
+
+  .current-weather-description {
+    flex-grow: 1;
+    font-size: 2.15em;
+  }
+}

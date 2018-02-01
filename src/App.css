@@ -1,0 +1,24 @@
+.weather-container {
+  background: transparent;
+  color: #fff;
+  transition: background 0.5s ease;
+  height: 100vh;
+}
+
+/* Night and Day */
+
+.night-bg {
+  background: #001942;
+}
+
+.night-color {
+  color: #001942;
+}
+
+.day-bg {
+  background: #68b1ff;
+}
+
+.day-color {
+  color: #68b1ff;
+}

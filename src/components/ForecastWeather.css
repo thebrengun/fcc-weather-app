@@ -1,0 +1,44 @@
+.forecast-weather {
+}
+
+.forecast-weather-day {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: .25em .75em;
+  font-size: 1.5em;
+}
+
+.forecast-weather-day:nth-child(2n+1) {
+  background: rgba(255, 255, 255, .15);
+}
+
+.forecast-weather-day > div {
+  margin: 0 .25em;
+}
+
+.forecast-temperature {
+  flex-shrink: 0;
+  flex-basis: 15%;
+}
+
+.forecast-day-description {
+  flex-grow: 1;
+  font-size: .9em;
+}
+
+.forecast-day-icon {
+  flex-basis: 15%;
+  flex-grow: 0;
+  /*background: pink;*/
+}
+
+.forecast-weekday {
+  flex-basis: 15%;
+  flex-shrink: 0;
+}
+
+.forecast-day-icon > img {
+  height: 2em;
+}

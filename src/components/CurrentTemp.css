@@ -1,0 +1,10 @@
+.temp {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+}
+
+.temp-unit {
+  font-size: .75em;
+}
