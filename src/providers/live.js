@@ -1,6 +1,12 @@
 import fetch from 'isomorphic-fetch';
 import fetchJsonp from 'fetch-jsonp';
-import { formatRequest } from '../utils/index.js';
+
+const formatRequest = (base, options) => {
+  return base + Object.keys(options).reduce((s, k, i) => {
+    let prefix = i === 0 ? '?' : '&';
+    return s + prefix + k + '=' + options[k];
+  }, '');
+};
 
 const getGeocodeInfo = (q) => {
   return fetchGeocode({address: encodeURIComponent(q)}).then(

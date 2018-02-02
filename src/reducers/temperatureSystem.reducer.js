@@ -1,8 +1,16 @@
-import { kelvinToCelsius, kelvinToFarenheit, round } from '../utils/index.js';
-
 const TOGGLE_TEMPERATURE_SYSTEM = 'TOGGLE_TEMPERATURE_SYSTEM';
 
 const toggleTemperatureSystem = () => ({type: TOGGLE_TEMPERATURE_SYSTEM});
+
+const kelvinToCelsiusRounded = K => round(kelvinToCelsius(K));
+const kelvinToFarenheitRounded = K => round(kelvinToFarenheit(K));
+const kelvinToFarenheit = (temp) => temp * (9 / 5) - 459.67;
+const kelvinToCelsius = (temp) => temp - 273.15;
+
+const round = (num, places = 0) => {
+  const mult = Math.pow(10, places);
+  return Math.round(num * mult) / mult;
+};
 
 const defaultState = {
 	convertFromK: kelvinToFarenheitRounded,
@@ -22,14 +30,6 @@ const reducer = (state = defaultState, action) => {
 		default:
 			return state;
 	}
-}
-
-function kelvinToCelsiusRounded(K) {
-  return round(kelvinToCelsius(K));
-}
-
-function kelvinToFarenheitRounded(K) {
-  return round(kelvinToFarenheit(K));
 }
 
 export { reducer, toggleTemperatureSystem};
