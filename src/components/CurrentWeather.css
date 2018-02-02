@@ -7,6 +7,7 @@
   padding: 0;
   font-size: 1.5em;
   text-transform: capitalize;
+  flex-basis: 100%;
 }
 
 /* Current Weather Icons */

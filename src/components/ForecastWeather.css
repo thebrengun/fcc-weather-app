@@ -14,7 +14,7 @@
   background: rgba(255, 255, 255, .15);
 }
 
-.forecast-weather-day > div {
+.forecast-temperature, .forecast-day-description, .forecast-day-icon, .forecast-weekday {
   margin: 0 .25em;
 }
 
@@ -41,4 +41,73 @@
 
 .forecast-day-icon > img {
   height: 2em;
+}
+
+@media only screen and (min-width : 600px) {
+  .forecast-weather {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .forecast-weather-day {
+    background: rgba(255, 255, 255, .01);
+    flex-basis: 25%;
+    padding: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .forecast-temperature, .forecast-day-description, .forecast-day-icon, .forecast-weekday {
+    padding: 0 .25em;
+  }
+
+  .forecast-day-description {
+    flex-grow: 1;
+    font-size: 1em;
+    margin: .25em 0;
+  }
+
+  .forecast-day-icon {    
+    flex-basis: auto;
+    text-align: center;
+    margin: .25em 0;
+  }
+
+  .forecast-day-icon > img {
+    width: 50%;
+    height: 100%;
+  }
+
+  .forecast-weekday {
+    background: rgba(0, 0, 0, .125);
+    margin: 0px;
+    font-size: 1.25em;
+    flex-basis: auto;
+  }
+
+  .forecast-temperature {
+    display: flex;
+    flex-basis: auto;
+    margin: .25em 0;
+  }
+}
+
+@media only screen and (min-width : 900px) {
+  .forecast-weather-day {
+    flex-basis: 33.33%;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  .forecast-weather-day {
+    flex-basis: 25%;
+  }
+}
+
+@media only screen and (min-width : 1800px) {
+  .forecast-weather-day {
+    flex-basis: 12.5%;
+  }
 }
