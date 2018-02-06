@@ -6,6 +6,23 @@ import { reducer as temperatureSystem } from './temperatureSystem.reducer.js';
 import { reducer as weather } from './weather.reducer.js';
 import { reducer as sky } from './sky.reducer.js';
 
+const loadStateFromLocalStorage = () => {
+	try {
+		const state = localStorage.getItem('fcc-weather-app');
+		return state == null ? undefined : JSON.parse(state);
+	} catch(err) {
+		return undefined;
+	}
+};
+
+const saveStateToLocalStorage = (state) => {
+	try {
+		localStorage.setItem('fcc-weather-app', JSON.stringify(state));
+	} catch(err) {
+		// Ignore write errors
+	}
+};
+
 const middlewares = [thunk];
 
 if (process.env.NODE_ENV === `development`) {
@@ -22,7 +39,12 @@ const store = createStore(
 		weather,
 		sky
 	}), 
+	loadStateFromLocalStorage(),
 	applyMiddleware(...middlewares)
 );
+
+store.subscribe(() => {
+	saveStateToLocalStorage(store.getState());
+});
 
 export default store;

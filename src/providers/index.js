@@ -2,7 +2,7 @@ let fetchCurrentWeather, fetchForecast, fetchIPInfo, getGeocodeInfo, getLocation
 
 const mock = process.env.NODE_ENV === 'development';
 
-if(!mock) {
+if(mock) {
   const mock = require('./mock.js');
   mapFromObj(mock);
 } else {

@@ -4,14 +4,28 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleTemperatureSystem } from '../reducers/temperatureSystem.reducer.js';
 
+const round = (num, places = 0) => {
+  const mult = Math.pow(10, places);
+  return Math.round(num * mult) / mult;
+};
+const kelvinToCelsiusRounded = K => round(kelvinToCelsius(K));
+const kelvinToFarenheitRounded = K => round(kelvinToFarenheit(K));
+const kelvinToFarenheit = (temp) => temp * (9 / 5) - 459.67;
+const kelvinToCelsius = (temp) => temp - 273.15;
+
 class ConvertTemp extends PureComponent {
+	convert = (kelvin) => {
+		return this.props.temperatureSystem === 'F' ? 
+			kelvinToFarenheitRounded(kelvin) : 
+			kelvinToCelsiusRounded(kelvin);
+	}
+
 	render() {
-		const tempString = this.props.kelvin ? this.props.convert(this.props.kelvin) : '--';
 		return (
 			<span onClick={this.props.toggle} className="temp">
-				<span>{tempString}</span>
+				<span>{this.props.kelvin ? this.convert(this.props.kelvin) : '--'}</span>
 				<span className="temp-unit">
-					{String.fromCharCode(176)}{this.props.tempUnit}
+					{String.fromCharCode(176)}{this.props.temperatureSystem}
 				</span>
 			</span>
 		);
@@ -22,13 +36,10 @@ ConvertTemp.propTypes = {
 	kelvin: PropTypes.number,
 	convert: PropTypes.func,
 	toggle: PropTypes.func,
-	tempUnit: PropTypes.string
+	temperatureSystem: PropTypes.string
 };
 
-const mapStateToProps = ({temperatureSystem}) => ({
-	convert: temperatureSystem.convertFromK,
-	tempUnit: temperatureSystem.abbr,
-});
+const mapStateToProps = ({temperatureSystem}) => ({temperatureSystem});
 
 const mapDispatchToProps = (dispatch) => ({
 	toggle: () => dispatch(toggleTemperatureSystem())
