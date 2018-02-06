@@ -34,7 +34,7 @@ const getLocation = () => {
 			lon: -73.9950965
 		}
 	});
-	return getLocationInfo().catch(fetchIPInfo).catch(returnDefaultLocation);
+	return fetchIPInfo.catch(getLocationInfo).catch(returnDefaultLocation);
 };
 
 const getBestResult = (results) => {
