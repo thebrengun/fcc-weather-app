@@ -14,7 +14,9 @@ class App extends Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if(nextProps.location.lat !== this.props.location.lat) {
+    const { lat, lon } = this.props.location;
+    const { lat:nextLat, lon:nextLon } = nextProps.location;
+    if(nextLat !== lat || nextLon !== lon) {
       this.props.getForecasts(nextProps.location);
     }
   }
@@ -32,11 +34,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({location, lookupLocation, weather, sky}) => ({
+const mapStateToProps = ({location, weather, sky}) => ({
   location,
   currentWeather: weather.currentWeather,
   forecastWeather: weather.forecastWeather,
-  editSearchField: lookupLocation.editingSearchField,
   sky
 });
 
