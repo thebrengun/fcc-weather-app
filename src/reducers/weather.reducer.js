@@ -56,8 +56,10 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 const reducer = (state = defaultState, action) => {
 	switch(action.type) {
 		case SET_CURRENT_WEATHER:
+			console.log('setting current weather');
 			return {...state, currentWeather: action.payload};
 		case SET_FORECAST_WEATHER:
+			console.log('setting forecast weather');
 			return {...state, forecastWeather: action.payload};
 		default:
 			return state;
