@@ -7,6 +7,8 @@ class CurrentWeather extends PureComponent {
 	render() {
 		return (
 			<div className="current-weather">
+				{this.props.pending && <div className="pending">Updating...</div>}
+				{this.props.error && <div className="error">{this.props.error}</div>}
 				<div className="current-weather-icons">
 					{this.props.currentWeather.weather.map(
 						({main, icon}, idx) => 
@@ -44,11 +46,15 @@ CurrentWeather.defaultProps = {
 	currentWeather: {
 		weather: [],
 		main: {}
-	}
+	},
+	pending: false,
+	error: undefined
 };
 
 CurrentWeather.propTypes = {
-  currentWeather: PropTypes.object
+  currentWeather: PropTypes.object,
+  pending: PropTypes.bool,
+  error: PropTypes.string
 };
 
 export default CurrentWeather;

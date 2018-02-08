@@ -26,8 +26,16 @@ class App extends Component {
       <div className={`weather-container ${this.props.sky}-bg`}>
         <LookupLocation />
         <div className="weather-forecasts">
-          <CurrentWeather currentWeather={this.props.currentWeather} />
-          <ForecastWeather forecastWeather={this.props.forecastWeather} />
+          <CurrentWeather 
+            currentWeather={this.props.currentWeather.data} 
+            pending={this.props.currentWeather.pending} 
+            error={this.props.currentWeather.error}
+          />
+          <ForecastWeather 
+            forecastWeather={this.props.forecastWeather.data} 
+            pending={this.props.forecastWeather.pending} 
+            error={this.props.forecastWeather.error}
+          />
         </div>
       </div>
     );

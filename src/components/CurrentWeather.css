@@ -1,5 +1,10 @@
 /* Current Weather */
 
+.pending, .error {
+  text-align: center;
+  margin: 1em 0;
+}
+
 /* Current Weather Description */
 
 .current-weather-description {

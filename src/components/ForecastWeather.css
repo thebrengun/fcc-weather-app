@@ -1,6 +1,11 @@
 .forecast-weather {
 }
 
+.pending, .error {
+  text-align: center;
+  margin: 1em 0;
+}
+
 .forecast-weather-day {
   display: flex;
   flex-direction: row;

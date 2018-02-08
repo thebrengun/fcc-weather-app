@@ -68,9 +68,9 @@ const getBestResult = (results) => {
 };
 
 const defaultState = {
-	name: 'Los Angeles, CA',
-	lat: 40.6971494,
-	lon: -74.2598655
+	name: 'New York, NY',
+	lat: 40.712775,
+	lon: -74.005973
 };
 
 const reducer = (state = defaultState, action) => {

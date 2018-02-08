@@ -16,6 +16,8 @@ class ForecastWeather extends PureComponent {
 	render() {
 		return (
 			<div className="forecast-weather">
+				{this.props.pending && <div className="pending">Updating...</div>}
+				{this.props.error && <div className="error">{this.props.error}</div>}
 				{this.props.forecastWeather.list.map(
 					({temp, weather}, idx) => {
 						const weekdays = {0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat'};
@@ -49,11 +51,15 @@ class ForecastWeather extends PureComponent {
 ForecastWeather.defaultProps = {
 	forecastWeather: {
 		list: []
-	}
+	},
+	pending: false,
+	error: undefined
 };
 
 ForecastWeather.propTypes = {
-  forecastWeather: PropTypes.object
+  forecastWeather: PropTypes.object,
+  pending: PropTypes.bool,
+  error: PropTypes.string
 };
 
 export default ForecastWeather;

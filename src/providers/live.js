@@ -95,7 +95,7 @@ const fetchIPInfo = () => {
 const fetchWeather = (config) => {
   const url = 'https://script.google.com/macros/s/AKfycbwjTLjrLNuQfoaHCVqNRQ08GBuC5bUTrDiKzJf10jlh5UUnSug/exec';
   const request = formatRequest(url, config);
-  return fetchJsonp(request).then(handleResponse).catch(err => {throw err;});
+  return fetchJsonp(request).then(handleResponse);
 };
 
 const handleResponse = (response) => {
