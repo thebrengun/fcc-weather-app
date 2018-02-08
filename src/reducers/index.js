@@ -44,7 +44,8 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-	saveStateToLocalStorage(store.getState());
+	const state = store.getState();
+	saveStateToLocalStorage({...state, location: {name: state.location.name}});
 });
 
 export default store;
