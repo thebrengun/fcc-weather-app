@@ -1,5 +1,4 @@
 import { geocodeKey } from './API_KEYS.js';
-import fetch from 'isomorphic-fetch';
 import fetchJsonp from 'fetch-jsonp';
 
 const formatRequest = (base, options) => {
