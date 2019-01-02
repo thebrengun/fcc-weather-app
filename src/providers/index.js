@@ -35,7 +35,8 @@ const reverseGeocode = ({lat, lon}) => {
 
 const fetchGeocode = (obj) => {
   const url = 'https://maps.googleapis.com/maps/api/geocode/json';
-  const options = {...obj, key: process.env.GEOCODE};
+  const key = process.env.REACT_APP_GEOCODE;
+  const options = {...obj, key};
   return fetch(formatRequest(url, options));
 };
 
