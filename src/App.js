@@ -16,7 +16,14 @@ class App extends Component {
   componentWillReceiveProps = (nextProps) => {
     const { lat, lon } = this.props.location;
     const { lat:nextLat, lon:nextLon } = nextProps.location;
-    if(nextLat !== lat || nextLon !== lon) {
+    const locationHasChanged = nextLat !== lat || nextLon !== lon;
+
+    const currentWeather = nextProps.currentWeather;
+    const dt = currentWeather.dt;
+    const tenMinutes = 600000;
+    const moreThanTenMinutesSinceLastUpdate = (Date.now() - tenMinutes) > parseInt(dt, 10);
+
+    if(locationHasChanged || moreThanTenMinutesSinceLastUpdate) {
       this.props.getForecasts(nextProps.location);
     }
   }

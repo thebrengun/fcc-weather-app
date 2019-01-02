@@ -76,7 +76,7 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 const reducer = (state = defaultState, action) => {
 	switch(action.type) {
 		case FETCH_CURRENT_WEATHER:
-			return {...state, currentWeather: {...state.currentWeather, pending: true, error: undefined}};
+			return {...state, currentWeather: {...state.currentWeather, pending: true, error: undefined, dt: Date.now()}};
 		case FETCH_FORECAST_WEATHER:
 			return {...state, forecastWeather: {...state.forecastWeather, pending: true, error: undefined}};
 		case SET_CURRENT_WEATHER_ERROR:
