@@ -1,4 +1,3 @@
-import { geocodeKey } from './API_KEYS.js';
 import fetchJsonp from 'fetch-jsonp';
 
 const formatRequest = (base, options) => {
@@ -36,7 +35,7 @@ const reverseGeocode = ({lat, lon}) => {
 
 const fetchGeocode = (obj) => {
   const url = 'https://maps.googleapis.com/maps/api/geocode/json';
-  const options = {...obj, key: geocodeKey};
+  const options = {...obj, key: process.env.GEOCODE};
   return fetch(formatRequest(url, options));
 };
 
