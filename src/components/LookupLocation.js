@@ -35,7 +35,7 @@ class LookupLocation extends PureComponent {
             </div>
           }
         </div>
-        {this.props.locationSuggestions.length > 0 && 
+        {this.props.locationSuggestions && this.props.locationSuggestions.length > 0 && 
           <div className="location-suggestions">
             {this.props.locationSuggestions.map(
               ({formatted_address, geometry, place_id}, idx) => 

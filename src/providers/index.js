@@ -1,4 +1,4 @@
-import fetchJsonp from 'fetch-jsonp';
+const endpoint = process.env.NODE_ENV === 'production' ? 'https://free-code-camp-w-1502827287345.appspot.com' : 'http://localhost:5000';
 
 const formatRequest = (base, options) => {
   return base + Object.keys(options).reduce((s, k, i) => {
@@ -8,7 +8,7 @@ const formatRequest = (base, options) => {
 };
 
 const getGeocodeInfo = (q) => {
-  return fetchGeocode({address: encodeURIComponent(q)}).then(
+  return fetch(formatRequest(`${endpoint}/api/v1/geocode/encode`, {address: encodeURIComponent(q)})).then(
     response => {
       if(response.status >= 400) {
         throw new Error('Bad response');
@@ -17,11 +17,15 @@ const getGeocodeInfo = (q) => {
     }
   ).catch(
     err => {throw err;}
+  ).then(
+    json => {
+      return Object.keys(json).map(key => json[key]).filter((r) => r.address_components);
+    }
   );
 };
 
 const reverseGeocode = ({lat, lon}) => {
-  return fetchGeocode({latlng: lat + ',' + lon}).then(
+  return fetch(formatRequest(`${endpoint}/api/v1/geocode/decode`, {lat, lon})).then(
     response => {
       if(response.status >= 400) {
         throw new Error('Bad response');
@@ -30,14 +34,11 @@ const reverseGeocode = ({lat, lon}) => {
     }
   ).catch(
     err => {throw err;}
+  ).then(
+    json => {
+      return Object.keys(json).map(key => json[key]).filter((r) => r.address_components);
+    }
   );
-};
-
-const fetchGeocode = (obj) => {
-  const url = 'https://maps.googleapis.com/maps/api/geocode/json';
-  const key = process.env.REACT_APP_GEOCODE;
-  const options = {...obj, key};
-  return fetch(formatRequest(url, options));
 };
 
 const getLocationInfo = () => {
@@ -91,25 +92,17 @@ const fetchIPInfo = () => {
   );
 };
 
-const fetchWeather = (config) => {
-  const url = 'https://script.google.com/macros/s/AKfycbwjTLjrLNuQfoaHCVqNRQ08GBuC5bUTrDiKzJf10jlh5UUnSug/exec';
-  const request = formatRequest(url, config);
-  return fetchJsonp(request).then(handleResponse);
-};
-
-const handleResponse = (response) => {
-  const json = response.json();
-  if(json.cod >= 400) {
-    throw new Error(json.message);
+const fetchWeather = (url) => ({lat, lon, id}) => {
+  if(id) {
+    return fetch(`${url}?id=${encodeURIComponent(id)}`);
+  } else if(lat && lon) {
+    return fetch(`${url}?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`);
+  } else {
+    return Promise.resolve(new Error('Must include either id or lat and lon parameters.'));
   }
-  return json;
 };
 
-const fetchForecast = (config) => {
-  config['future'] = 1;
-  return fetchWeather(config);
-};
-
-const fetchCurrentWeather = fetchWeather;
+const fetchCurrentWeather = fetchWeather(`${endpoint}/api/v1/weather/current`);
+const fetchForecast = fetchWeather(`${endpoint}/api/v1/weather/daily`);
 
 export { fetchCurrentWeather, fetchForecast, fetchIPInfo, getGeocodeInfo, getLocationInfo, reverseGeocode };

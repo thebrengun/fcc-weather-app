@@ -18,7 +18,7 @@ const updateSearchFieldAndLookupSuggestions = (searchFieldText) => (dispatch, ge
 	if(state.debounceLookupSuggestions) { state.debounceLookupSuggestions.cancel(); }
 	if(searchFieldText) {
 		const debouncedLookupSuggestionsFn = () => getGeocodeInfo(searchFieldText).then(
-			({results}) => dispatch(updateSuggestions(results))
+			(results) => dispatch(updateSuggestions(results))
 		);
 		const fn = debounce(debouncedLookupSuggestionsFn, 600, {maxWait: 1000});
 		fn();

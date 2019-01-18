@@ -28,9 +28,14 @@ const setForecastWeatherError = (err) => ({type: SET_FORECAST_WEATHER_ERROR, pay
 const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 	const forecasts = {};
 	dispatch(setPendingCurrentWeather());
-	fetchCurrentWeather({lat, lon}).catch(
-		err => {
-			return err;
+	fetchCurrentWeather({lat, lon}).then(
+		response => {
+			if(response.status >= 400) {
+				return response.json().then(({message}) => {
+					throw new Error(message);
+				});
+			}
+			return response.json();
 		}
 	).then(
 		(currentWeather) => {
@@ -43,6 +48,15 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 			return forecasts;
 		}
 	).then(
+		response => {
+			if(response.status >= 400) {
+				return response.json().then(({message}) => {
+					throw new Error(message);
+				});
+			}
+			return response.json();
+		}
+	).then(
 		(forecastWeather) => {
 			forecasts['forecastWeather'] = forecastWeather;
 			return forecasts;
@@ -53,6 +67,7 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 		}
 	).then(
 		(forecasts) => {
+			console.log(forecasts);
 			if(forecasts.currentWeather && forecasts.currentWeather instanceof Error === false) {
 				dispatch(setSky(
 					forecasts.currentWeather.dt, 
