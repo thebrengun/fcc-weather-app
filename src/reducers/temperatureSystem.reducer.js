@@ -7,7 +7,7 @@ const defaultState = 'F';
 const reducer = (state = defaultState, action) => {
 	switch(action.type) {
 		case TOGGLE_TEMPERATURE_SYSTEM:
-			return state.abbr === 'F' ? 'C' : 'F';
+			return state === 'F' ? 'C' : 'F';
 		default:
 			return state;
 	}

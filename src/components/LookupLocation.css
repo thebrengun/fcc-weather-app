@@ -70,3 +70,7 @@
   flex-shrink: 1;
   color: inherit;
 }
+
+.edit-search-field {
+  cursor: pointer;
+}
