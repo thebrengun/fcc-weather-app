@@ -1,4 +1,10 @@
-const endpoint = process.env.NODE_ENV === 'production' ? 'https://free-code-camp-w-1502827287345.appspot.com' : 'http://localhost:5000';
+const endpoint = process.env.API_ENDPOINT;
+
+if(!endpoint) {
+  throw new Error(`Expected environment variable API_ENDPOINT setting the root for API requests. 
+    This assumes a development or production deployment of the 
+    fcc-weather-app-api (https://github.com/thebrengun/fcc-weather-app-api).`);
+}
 
 const formatRequest = (base, options) => {
   return base + Object.keys(options).reduce((s, k, i) => {
