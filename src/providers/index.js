@@ -1,4 +1,4 @@
-const endpoint = process.env.API_ENDPOINT;
+const endpoint = process.env.REACT_APP_API_ENDPOINT;
 
 if(!endpoint) {
   throw new Error(`Expected environment variable API_ENDPOINT setting the root for API requests. 
