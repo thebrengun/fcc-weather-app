@@ -39,6 +39,9 @@ const getLocation = () => {
 
 const getBestResult = (results) => {
 	// Selected result should be the first result that doesn't contain point_of_interest, establishment, street_number, or route
+	if(!Array.isArray(results)) {
+		return [];
+	}
 	let selectedResult = results.filter(
 		({address_components}) => {
 			for(let i = 0; i < address_components.length; i++) {

@@ -67,7 +67,6 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 		}
 	).then(
 		(forecasts) => {
-			console.log(forecasts);
 			if(forecasts.currentWeather && forecasts.currentWeather instanceof Error === false) {
 				dispatch(setSky(
 					forecasts.currentWeather.dt, 
@@ -79,6 +78,7 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 			} else {
 				dispatch(setCurrentWeatherError('Could not get current weather: ' + forecasts.currentWeather.message));
 			}
+			
 			if(forecasts.forecastWeather && forecasts.forecastWeather instanceof Error === false) {
 				dispatch(setForecastWeather(forecasts.forecastWeather));
 			} else {
