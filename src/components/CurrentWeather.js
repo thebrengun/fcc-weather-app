@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import './CurrentWeather.css';
 import PropTypes from 'prop-types';
 import ConvertTemp from './ConvertTemp.js';
+import icons from './icons/index.js';
 
 class CurrentWeather extends PureComponent {
 	render() {
@@ -13,7 +14,7 @@ class CurrentWeather extends PureComponent {
 					{this.props.currentWeather.weather.map(
 						({main, icon}, idx) => 
 							<div key={`weather-icon-${main}-${idx}`}>
-								<img src={`images/weather-icons/svg/${icon}.svg`} alt={main} />
+								{React.createElement(icons[icon])}
 							</div>
 					)}
 				</div>

@@ -1,0 +1,31 @@
+.Cloud .outline {
+	fill: #000000;
+}
+
+.night-bg .Cloud .outline {
+	fill: #ffffff;
+}
+
+.night-bg .Cloud .fill {
+	fill: #dddddd;
+}
+
+.night-bg .Cloud .outline {
+	fill: #ffffff;
+}
+
+.Cloud.DarkCloud .outline {
+	fill: #000000;
+}
+
+.Cloud.DarkCloud .fill {
+	fill: #646464;
+}
+
+.night-bg .Cloud.DarkCloud .outline {
+	fill: #dddddd;
+}
+
+.Cloud.Drizzle .fill {
+	fill: #cccccc;
+}

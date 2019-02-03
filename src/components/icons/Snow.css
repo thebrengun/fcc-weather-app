@@ -1,0 +1,11 @@
+.Snow .flake .outline {
+	fill: #000000;
+}
+
+.Snow .flake .fill {
+	fill: #ffffff;
+}
+
+.night-bg .Snow .flake .outline {
+	fill: transparent;
+}

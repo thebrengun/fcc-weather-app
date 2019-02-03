@@ -1,0 +1,12 @@
+.Moon .outline {
+	fill: #000000;
+}
+
+.Moon .star {
+	fill: #000000;
+}
+
+.night-bg .Moon .outline,
+.night-bg .Moon .star {
+	fill: #ffffff;
+}

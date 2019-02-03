@@ -1,0 +1,7 @@
+.Rain {
+	fill: #000000;
+}
+
+.night-bg .Rain {
+	fill: #ffffff;
+}
