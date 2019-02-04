@@ -69,9 +69,9 @@ const getForecasts = ({lat, lon}) => (dispatch, getState) => {
 		(forecasts) => {
 			if(forecasts.currentWeather && forecasts.currentWeather instanceof Error === false) {
 				dispatch(setSky(
-					forecasts.currentWeather.dt, 
-					forecasts.currentWeather.sys.sunrise, 
-					forecasts.currentWeather.sys.sunset, 
+					parseInt(Date.now(), 10) / 1000, 
+					parseInt(forecasts.currentWeather.sys.sunrise, 10), 
+					parseInt(forecasts.currentWeather.sys.sunset, 10), 
 					forecasts.currentWeather.clouds.all
 				));
 				dispatch(setCurrentWeather(forecasts.currentWeather));
