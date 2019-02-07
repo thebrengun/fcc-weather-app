@@ -22,18 +22,6 @@ class CurrentWeather extends PureComponent {
 					<div className="temp-live">
 						<ConvertTemp kelvin={this.props.currentWeather.main.temp} />
 					</div>
-					{
-					// <div className="temp-hi-lo">
-					// 	<div className="temp-hi">
-					// 		<span>Hi: </span>
-					// 		<ConvertTemp kelvin={this.props.currentWeather.main.temp_max} />
-					// 	</div>
-					// 	<div className="temp-lo">
-					// 		<span>Lo: </span>
-					// 		<ConvertTemp kelvin={this.props.currentWeather.main.temp_min} />
-					// 	</div>
-					// </div>
-					}
 				</div>
 				<div className="current-weather-description">
 					{this.props.currentWeather.weather.map(({description}) => description).join(', ')}

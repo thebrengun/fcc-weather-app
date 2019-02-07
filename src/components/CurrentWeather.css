@@ -74,6 +74,7 @@
 
   .current-weather-icons {
     flex-basis: 50%;
+    flex-grow: 1;
   }
 
   .current-weather-temp {
