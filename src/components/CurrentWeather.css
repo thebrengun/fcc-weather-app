@@ -32,9 +32,9 @@
   justify-content: center;
 }
 
-.current-weather-icons > div > img {
+.current-weather-icons > div > svg {
   width: 90%;
-  max-width: 55vw;
+  max-width: 75vw;
 }
 
 /* Current Weather Temperature */

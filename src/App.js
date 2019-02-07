@@ -1,64 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import { connect } from 'react-redux';
-import { determineLocation } from './reducers/location.reducer.js';
-import { getForecasts } from './reducers/weather.reducer.js';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import FullForecast from './components/FullForecast.js';
+import DetermineLocation from './components/DetermineLocation.js';
 
-import LookupLocation from './components/LookupLocation.js';
-import CurrentWeather from './components/CurrentWeather.js';
-import ForecastWeather from './components/ForecastWeather.js';
+const Home = () => (
+	<DetermineLocation>
+		<FullForecast />
+	</DetermineLocation>
+);
 
 class App extends Component {
-  componentDidMount() {
-    this.props.determineLocation();
-  }
 
-  componentWillReceiveProps = (nextProps) => {
-    const { lat, lon } = this.props.location;
-    const { lat:nextLat, lon:nextLon } = nextProps.location;
-    const locationHasChanged = nextLat !== lat || nextLon !== lon;
-
-    const currentWeather = nextProps.currentWeather;
-    const dt = currentWeather.dt;
-    const tenMinutes = 600000;
-    const moreThanTenMinutesSinceLastUpdate = (Date.now() - tenMinutes) > parseInt(dt, 10);
-
-    if(locationHasChanged || moreThanTenMinutesSinceLastUpdate) {
-      this.props.getForecasts(nextProps.location);
-    }
-  }
-
-  render() {
-    return (
-      <div className={`weather-container ${this.props.sky}-bg`}>
-        <LookupLocation />
-        <div className="weather-forecasts">
-          <CurrentWeather 
-            currentWeather={this.props.currentWeather.data} 
-            pending={this.props.currentWeather.pending} 
-            error={this.props.currentWeather.error}
-          />
-          <ForecastWeather 
-            forecastWeather={this.props.forecastWeather.data} 
-            pending={this.props.forecastWeather.pending} 
-            error={this.props.forecastWeather.error}
-          />
-        </div>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<Router>
+				<Route path="/" exact component={Home} />
+			</Router>
+		);
+	}
 }
 
-const mapStateToProps = ({location, weather, sky}) => ({
-  location,
-  currentWeather: weather.currentWeather,
-  forecastWeather: weather.forecastWeather,
-  sky
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  determineLocation: () => dispatch(determineLocation()),
-  getForecasts: (location) => dispatch(getForecasts(location))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

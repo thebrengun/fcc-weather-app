@@ -1,0 +1,31 @@
+.weather-container {
+  background: transparent;
+  color: #fff;
+  transition: background 0.5s ease;
+  min-height: 100vh;
+}
+
+@media only screen and (min-width : 1200px) {
+	.weather-forecasts {
+		display: flex;
+	}
+}
+
+/* Night and Day */
+
+.night-bg {
+  background: #001942;
+}
+
+.night-color {
+  color: #001942;
+}
+
+.day-bg {
+  background: #A8D1FF;
+  color: #000000;
+}
+
+.day-color {
+  color: #68b1ff;
+}
