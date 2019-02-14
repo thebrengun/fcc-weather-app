@@ -6,6 +6,11 @@ const defaultState = {
 	currentWeather: {
 		main: {temp: undefined},
 		weather: []
+	},
+	hourlyWeather: {
+		data: {
+			list: []
+		}
 	}
 };
 
