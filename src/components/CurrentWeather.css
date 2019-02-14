@@ -35,6 +35,7 @@
 .current-weather-icons > div > svg {
   width: 90%;
   max-width: 75vw;
+  max-height: 50vh;
 }
 
 /* Current Weather Temperature */

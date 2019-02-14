@@ -1,0 +1,56 @@
+.HourlyWeather {
+	background: rgba(0, 0, 0, .15);
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+	display: flex;
+	flex-direction: row;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, .25);
+	padding: .25em 0;
+}
+
+.night-bg .HourlyWeather {
+	background: #000000;
+	border-color: #646464;
+}
+
+.HourlyWeather>:first-child {
+	padding-left: 1em;
+}
+
+.HourlyWeather>:last-child {
+	padding-right: 1em;
+}
+
+.forecast-weather-hourly {
+	flex-basis: 14%;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	text-align: center;
+	margin: .5em .25em;
+}
+
+.forecast-time {
+}
+
+.forecast-hourly-temperature {
+
+}
+
+.forecast-hourly-icon {
+	
+}
+
+.forecast-hourly-description {
+	font-size: .8em;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}

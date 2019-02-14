@@ -110,5 +110,6 @@ const fetchWeather = (url) => ({lat, lon, id}) => {
 
 const fetchCurrentWeather = fetchWeather(`${endpoint}/api/v1/weather/current`);
 const fetchForecast = fetchWeather(`${endpoint}/api/v1/weather/daily`);
+const fetchHourlyWeather = fetchWeather(`${endpoint}/api/v1/weather/hourly`);
 
-export { fetchCurrentWeather, fetchForecast, fetchIPInfo, getGeocodeInfo, getLocationInfo, reverseGeocode };
+export { fetchCurrentWeather, fetchHourlyWeather, fetchForecast, fetchIPInfo, getGeocodeInfo, getLocationInfo, reverseGeocode };

@@ -4,14 +4,25 @@ import PropTypes from 'prop-types';
 import ConvertTemp from './ConvertTemp.js';
 import icons from './icons/index.js';
 
+const filterDuplicateIcons = () => {
+	const icons = [];
+	return ({icon}) => {
+		const present = icons.indexOf(icon) !== -1;
+		if(!present) {
+			icons.push(icon);
+		}
+		return !present;
+	};
+}
+
 class CurrentWeather extends PureComponent {
 	render() {
 		return (
 			<div className="current-weather">
 				{this.props.pending && <div className="pending">Updating...</div>}
-				{this.props.error && <div className="error">{this.props.error}</div>}
+				{this.props.error && <div className="error">{this.props.error && this.props.error}</div>}
 				<div className="current-weather-icons">
-					{this.props.currentWeather.weather.map(
+					{this.props.currentWeather.weather.filter(filterDuplicateIcons()).map(
 						({main, icon}, idx) => 
 							<div key={`weather-icon-${main}-${idx}`}>
 								{React.createElement(icons[icon])}

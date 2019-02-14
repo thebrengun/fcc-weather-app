@@ -6,6 +6,7 @@ import { getForecasts } from '../reducers/weather.reducer.js';
 import LookupLocation from './LookupLocation.js';
 import CurrentWeather from './CurrentWeather.js';
 import ForecastWeather from './ForecastWeather.js';
+import HourlyWeather from './HourlyWeather.js';
 
 class FullForecast extends PureComponent {
 	
@@ -34,11 +35,18 @@ class FullForecast extends PureComponent {
 						pending={this.props.currentWeather.pending} 
 						error={this.props.currentWeather.error}
 					/>
-					<ForecastWeather 
-						forecastWeather={this.props.forecastWeather.data} 
-						pending={this.props.forecastWeather.pending} 
-						error={this.props.forecastWeather.error}
-					/>
+					<div>
+						<HourlyWeather 
+							hourlyWeather={this.props.hourlyWeather.data} 
+							pending={this.props.hourlyWeather.pending} 
+							error={this.props.hourlyWeather.error} 
+						/>
+						<ForecastWeather 
+							forecastWeather={this.props.forecastWeather.data} 
+							pending={this.props.forecastWeather.pending} 
+							error={this.props.forecastWeather.error}
+						/>
+					</div>
 				</div>
 			</div>
 		);
@@ -49,6 +57,7 @@ const mapStateToProps = ({location, weather, sky}) => ({
 	location,
 	currentWeather: weather.currentWeather,
 	forecastWeather: weather.forecastWeather,
+	hourlyWeather: weather.hourlyWeather,
 	sky
 });
 
