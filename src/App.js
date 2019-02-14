@@ -14,7 +14,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<Router>
+			<Router basename={process.env.NODE_ENV === 'production' : '/fcc-weather-app' : '/'} />
 				<Route path="/" exact component={Home} />
 			</Router>
 		);
