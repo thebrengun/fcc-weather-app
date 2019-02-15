@@ -34,19 +34,17 @@ class FullForecast extends PureComponent {
 						currentWeather={this.props.currentWeather.data} 
 						pending={this.props.currentWeather.pending} 
 						error={this.props.currentWeather.error}
+					/>					
+					<HourlyWeather 
+						hourlyWeather={this.props.hourlyWeather.data} 
+						pending={this.props.hourlyWeather.pending} 
+						error={this.props.hourlyWeather.error} 
 					/>
-					<div>
-						<HourlyWeather 
-							hourlyWeather={this.props.hourlyWeather.data} 
-							pending={this.props.hourlyWeather.pending} 
-							error={this.props.hourlyWeather.error} 
-						/>
-						<ForecastWeather 
-							forecastWeather={this.props.forecastWeather.data} 
-							pending={this.props.forecastWeather.pending} 
-							error={this.props.forecastWeather.error}
-						/>
-					</div>
+					<ForecastWeather 
+						forecastWeather={this.props.forecastWeather.data} 
+						pending={this.props.forecastWeather.pending} 
+						error={this.props.forecastWeather.error}
+					/>
 				</div>
 			</div>
 		);
