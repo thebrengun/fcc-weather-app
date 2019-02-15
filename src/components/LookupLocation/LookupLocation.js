@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './LookupLocation.css';
 import { connect } from 'react-redux';
-import { editSearchField, blurSearchField, updateSearchFieldAndLookupSuggestions } from '../reducers/lookupLocation.reducer.js';
-import { setLatLon, setLocName } from '../reducers/location.reducer.js';
-import locationIcon from '../assets/ic_location_on_white_24px.svg';
-import locationIconBlk from '../assets/ic_location_on_black_24px.svg';
+import { editSearchField, blurSearchField, updateSearchFieldAndLookupSuggestions } from '../../reducers/lookupLocation.reducer.js';
+import { setLatLon, setLocName } from '../../reducers/location.reducer.js';
+import locationIcon from '../../assets/ic_location_on_white_24px.svg';
+import locationIconBlk from '../../assets/ic_location_on_black_24px.svg';
 
 class LookupLocation extends PureComponent {
 

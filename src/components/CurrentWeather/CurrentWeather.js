@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import './CurrentWeather.css';
 import PropTypes from 'prop-types';
-import ConvertTemp from './ConvertTemp.js';
-import icons from './icons/index.js';
+import ConvertTemp from '../ConvertTemp/ConvertTemp.js';
+import icons from '../icons/index.js';
 
 const filterDuplicateIcons = () => {
 	const icons = [];

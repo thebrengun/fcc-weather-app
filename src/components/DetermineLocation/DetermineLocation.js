@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { determineLocation } from '../reducers/location.reducer.js';
+import { determineLocation } from '../../reducers/location.reducer.js';
 
 class DetermineLocation extends PureComponent {
 	componentDidMount() {
@@ -12,7 +12,11 @@ class DetermineLocation extends PureComponent {
 	}
 
 	render() {
-		return <React.Fragment>{this.props.children}</React.Fragment>;
+		return (
+			<React.Fragment>
+				{this.props.children}
+			</React.Fragment>
+		);
 	}
 }
 

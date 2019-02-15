@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import ConvertTemp from './ConvertTemp.js';
-import icons from './icons/index.js';
+import ConvertTemp from '../ConvertTemp/ConvertTemp.js';
+import icons from '../icons/index.js';
 import './HourlyWeather.css';
 
 class HourlyWeather extends PureComponent {

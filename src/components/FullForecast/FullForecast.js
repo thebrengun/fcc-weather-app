@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import './FullForecast.css';
 import { connect } from 'react-redux';
-import { getForecasts } from '../reducers/weather.reducer.js';
+import { getForecasts } from '../../reducers/weather.reducer.js';
 
-import LookupLocation from './LookupLocation.js';
-import CurrentWeather from './CurrentWeather.js';
-import ForecastWeather from './ForecastWeather.js';
-import HourlyWeather from './HourlyWeather.js';
+import LookupLocation from '../LookupLocation/LookupLocation.js';
+import CurrentWeather from '../CurrentWeather/CurrentWeather.js';
+import ForecastWeather from '../ForecastWeather/ForecastWeather.js';
+import HourlyWeather from '../HourlyWeather/HourlyWeather.js';
 
 class FullForecast extends PureComponent {
 	

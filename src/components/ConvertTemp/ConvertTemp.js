@@ -2,7 +2,7 @@ import './ConvertTemp.css';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { toggleTemperatureSystem } from '../reducers/temperatureSystem.reducer.js';
+import { toggleTemperatureSystem } from '../../reducers/temperatureSystem.reducer.js';
 
 const round = (num, places = 0) => {
   const mult = Math.pow(10, places);
