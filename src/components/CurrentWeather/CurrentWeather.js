@@ -17,6 +17,8 @@ const filterDuplicateIcons = () => {
 
 class CurrentWeather extends PureComponent {
 	render() {
+		const { wind, pressure, clouds, visibility, precipitation } = this.props;
+
 		return (
 			<div className="current-weather">
 				{this.props.pending && <div className="pending">Updating...</div>}
@@ -36,6 +38,13 @@ class CurrentWeather extends PureComponent {
 				</div>
 				<div className="current-weather-description">
 					{this.props.currentWeather.weather.map(({description}) => description).join(', ')}
+				</div>
+				<div>
+					{ wind && JSON.stringify(wind) }
+					{ pressure && JSON.stringify(pressure) }
+					{ clouds && JSON.stringify(clouds) }
+					{ visibility && JSON.stringify(visibility) }
+					{ precipitation && JSON.stringify(precipitation) }
 				</div>
 			</div>
 		);

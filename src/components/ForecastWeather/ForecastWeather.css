@@ -31,6 +31,7 @@
 .forecast-day-description {
   flex-grow: 1;
   font-size: .9em;
+  text-transform: capitalize;
 }
 
 .forecast-day-icon {

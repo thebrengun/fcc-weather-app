@@ -11,7 +11,9 @@ const determineLocation = () => (dispatch, getState) => {
 		(locationInfo) => {
 			dispatch(setLatLon(locationInfo.loc));
 			getLocationName(locationInfo).then(
-				(results) => dispatch(setLocName(getBestResult(results).formatted_address || ''))
+				(results) => {
+					dispatch(setLocName(getBestResult(results).formatted_address || ''));
+				}
 			);
 		}
 	);
