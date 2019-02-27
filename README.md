@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This web app uses its own api wrapper Weather App API which has been deployed to Google Cloud. See the [Weather App API Repository](https://github.com/thebrengun/fcc-weather-app-api) for more information.
 
+## Live Demo
+[https://thebrengun.github.io/fcc-weather-app/](https://thebrengun.github.io/fcc-weather-app/)
+
 ## Features
 
 - Displays weather in user's current location
