@@ -22,11 +22,11 @@ This web app uses its own api wrapper Weather App API which has been deployed to
 
 ## Development
 
-Configure development API base address by creating a .env.development file in the project root with an environment variable REACT_APP_API_ENDPOINT:
+Configure development API base address by creating a .env.development file in the project root with an environment variable `REACT_APP_API_ENDPOINT`:
 
-REACT_APP_API_ENDPOINT=https://localhost:PORT
+`REACT_APP_API_ENDPOINT=https://localhost:PORT`
 
-All environment variables must be prefixed with REACT_APP_ as [described in the docs](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables).
+All environment variables must be prefixed with `REACT_APP_` as [described in the docs](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables).
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). See Create React App documentation for additional information about development.
 
@@ -34,6 +34,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Configure production API base address by creating a .env.production file in the project root with an environment variable API_ENDPOINT:
 
-API_ENDPOINT=https://my-api-deployment.com
+`API_ENDPOINT=https://my-api-deployment.com`
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). See Create React App documentation for additional information about deployment.
