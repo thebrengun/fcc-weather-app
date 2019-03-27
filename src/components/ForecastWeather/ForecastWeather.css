@@ -15,8 +15,16 @@
   font-size: 1.5em;
 }
 
-.forecast-weather-day:nth-child(2n+1) {
-  background: rgba(255, 255, 255, .15);
+.forecast-weather-day:nth-child(2n) {
+  background: #f7faff;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #ececec;
+}
+
+.night-bg .forecast-weather-day:nth-child(2n) {
+  background: #000c23;
+  border-color: #494949;
 }
 
 .forecast-temperature, .forecast-day-description, .forecast-day-icon, .forecast-weekday {
@@ -65,14 +73,25 @@
     justify-content: flex-start;
   }
 
+  .forecast-weather-day:nth-child(2n) {
+    border-width: 0;
+  }
+
   .forecast-temperature, .forecast-day-description, .forecast-day-icon, .forecast-weekday {
     padding: 0 .25em;
+  }
+
+  .forecast-temperature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .forecast-day-description {
     flex-grow: 1;
     font-size: 1em;
     margin: .25em 0;
+    text-align: center;
   }
 
   .forecast-day-icon {    
@@ -86,8 +105,14 @@
     height: 100%;
   }
 
+  .day-bg .forecast-weekday {
+    background: rgb(14, 34, 68, .9);
+    color: #ffffff;
+  }
+
   .forecast-weekday {
-    background: rgba(0, 0, 0, .125);
+    background: rgba(255, 255, 255, .8);
+    color: #0e2244;
     margin: 0px;
     font-size: 1.25em;
     flex-basis: auto;

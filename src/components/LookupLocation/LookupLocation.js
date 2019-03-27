@@ -20,7 +20,7 @@ class LookupLocation extends PureComponent {
       <div className={`location-box-wrapper ${this.props.sky}`}>
         <div className={`location-box${this.props.editing ? ' editing' : ''}`}>
           <div className="location-icon" onClick={this.props.editSearchField}>
-            <img src={this.props.editing ? locationIconBlk : locationIcon} alt="Location Pin" />
+            <img src={this.props.editing ? locationIcon : locationIconBlk} alt="Location Pin" />
           </div>
           {this.props.editing ? 
             <input 
@@ -36,19 +36,22 @@ class LookupLocation extends PureComponent {
           }
         </div>
         {this.props.locationSuggestions && this.props.locationSuggestions.length > 0 && 
-          <div className="location-suggestions">
-            {this.props.locationSuggestions.map(
-              ({formatted_address, geometry, place_id}, idx) => 
-                <div 
-                  onClick={this.props.selectLocation(
-                    formatted_address, 
-                    {lat: geometry.location.lat, lon: geometry.location.lng}
-                  )} 
-                  key={`${idx}-${place_id}`}
-                >
-                  {formatted_address}
-                </div>
-            )}
+          <div className="location-suggestions-wrapper">
+            <div className="location-suggestions">
+              {this.props.locationSuggestions.map(
+                ({formatted_address, geometry, place_id}, idx) => 
+                  <div 
+                    onClick={this.props.selectLocation(
+                      formatted_address, 
+                      {lat: geometry.location.lat, lon: geometry.location.lng}
+                    )} 
+                    className="location-suggestion"
+                    key={`${idx}-${place_id}`}
+                  >
+                    {formatted_address}
+                  </div>
+              )}
+            </div>
           </div>
         }
       </div>

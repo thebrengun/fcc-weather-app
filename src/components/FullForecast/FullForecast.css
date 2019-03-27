@@ -15,7 +15,7 @@
 /* Night and Day */
 
 .night-bg {
-  background: #001942;
+  background: #0e2244;
 }
 
 .night-color {
@@ -23,8 +23,8 @@
 }
 
 .day-bg {
-  background: #A8D1FF;
-  color: #000000;
+  background: #eff5ff;
+  color: #0e2244;
 }
 
 .day-color {
