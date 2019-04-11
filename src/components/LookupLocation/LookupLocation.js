@@ -26,7 +26,7 @@ class LookupLocation extends PureComponent {
             <input 
               value={this.props.searchField} 
               onChange={this.props.updateSearchField} 
-              onBlur={(e) => setTimeout(this.props.blurSearchField, 50)} 
+              onBlur={(e) => setTimeout(this.props.blurSearchField, 150)} 
               className="location-search-field" 
               ref={(ref) => {this.searchField = ref;}}
             /> :
