@@ -133,7 +133,7 @@
 
 @media only screen and (min-width : 1200px) {
   .forecast-weather {
-    padding: 1em;
+    padding: 1em 0;
   }
 
   .forecast-weather-day {

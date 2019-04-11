@@ -26,6 +26,7 @@
   padding: .75em 0;
   border-top: solid 1px #dedede;
   border-collapse: separate;
+  cursor: pointer;
 }
 
 .location-suggestion:first-child {
